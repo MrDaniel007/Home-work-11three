@@ -1,4 +1,6 @@
  let box = document.querySelector(".box")
+
+
  let product = [{
       id: 1,
       title: "Product 1",
@@ -98,9 +100,18 @@
   ]
 
 box.innerHTML = product.map((item) => {
+ 
   return`
   <div class="card">
+  <img class="img" src="${item.image}  "/>
   <p>${item.title}  </p>
+ <p>${item.description}  </p> 
+  <p>${item.price}  </p>
+  <p>${item.viewCount}  </p>
+  <p>${item.rating}  </p>
+
   </div>
 `
 }).join("")
+
+
