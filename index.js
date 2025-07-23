@@ -1,11 +1,11 @@
  let box = document.querySelector(".box")
 
 
- let product = [{
+ let cards = [{
       id: 1,
       title: "Product 1",
       image: "https://picsum.photos/640/640?r=9418",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description: "Lorem ipsum dolor sit amet, consectetur edit.",
       discount: true,
       discountedPrice: 49.99,
       price: 69.99,
@@ -99,19 +99,45 @@
     }
   ]
 
-box.innerHTML = product.map((item) => {
- 
-  return`
-  <div class="card">
-  <img class="img" src="${item.image}  "/>
-  <p>${item.title}  </p>
- <p>${item.description}  </p> 
-  <p>${item.price}  </p>
-  <p>${item.viewCount}  </p>
-  <p>${item.rating}  </p>
 
-  </div>
-`
+
+
+box.innerHTML = cards.map((item) => {
+    let priceProduct = "";
+    if(item.discount == true) {
+    return`
+    <div class="card">
+    <p class="id">${item.id}</p>
+    <img class="img1" src = "${item.image}"/>
+    <h3>${item.title}</h3>
+    <p class="description">${item.description}</p>
+    <p class="rating">${item.rating} stars</p>
+    <div class="info">
+    <div>
+    <p class="price">${item.price}</p>
+    <p class="discountedPrice">${item.discountedPrice}</p>
+    </div>
+    <p class="count">${item.viewCount} views</p>
+    </div>
+    <img class="img2" src = "${item.images}"/>
+    </div>
+    `
+    } else if(item.discount == false) {
+        return`
+    <div class="card">
+    <p class="id">${item.id}</p>
+    <img class="img1" src = "${item.image}"/>
+    <h3>${item.title}</h3>
+    <p class="description">${item.description}</p>
+    <p class="rating">${item.rating} stars</p>
+    <div class="info">
+    <div>
+    <p class="price1">${item.price}</p>
+    </div>
+    <p class="count">${item.viewCount} views</p>
+    </div>
+    <img class="img2" src = "${item.images}"/>
+    </div>
+    `
+    }
 }).join("")
-
-
